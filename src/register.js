@@ -43,11 +43,15 @@ class RegisterForm extends React.Component{
             method: 'POST',
 
         }).then(function(response) {
-            return response.json();
+          return response.json();
         })
-            .then(function(myJson) {
-                console.log(myJson);
-            });
+            .then(function(response) {
+                if(response.err == null){
+                    this.props.variablePasser(response.payload);
+                }else{
+                    //display error to user
+                }
+            }.bind(this));
     }
     render() {
         return (
@@ -57,7 +61,7 @@ class RegisterForm extends React.Component{
                     <div className="col-12 col-md-6 mx-auto my-auto">
                         <div className="card">
                             <div className="card-body">
-                                <form onSubmit={this.handleSubmit}>
+                                <form className="tabfade" onSubmit={this.handleSubmit}>
                                     <div className="form-group row">
                                         <h1> Register </h1>
                                     </div>
