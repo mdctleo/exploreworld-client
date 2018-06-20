@@ -11,7 +11,9 @@ import {BrowserRouter} from "react-router-dom";
 
 ReactDOM.render((
     <BrowserRouter>
-        <App />
+        <CookiesProvider>
+            <App/>
+        </CookiesProvider>
     </BrowserRouter>
 ), document.getElementById('root'));
 

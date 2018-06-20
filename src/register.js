@@ -47,7 +47,7 @@ class RegisterForm extends React.Component{
         })
             .then(function(response) {
                 if(response.err == null){
-                    this.props.variablePasser(response.payload);
+                    
                 }else{
                     //display error to user
                 }
