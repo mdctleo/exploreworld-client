@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import testBackground from './testBackground.jpg';
 import { Link } from 'react-router-dom'
+import Redirect from "react-router-dom/es/Redirect";
+import landing from "./landing";
 
 var bgImg= {
     backgroundSize: 'cover',
@@ -13,8 +15,9 @@ class LoginForm extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            credential: '',
-            password: ''
+            email: '',
+            password: '',
+            redirect: false
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -31,7 +34,7 @@ class LoginForm extends React.Component{
         event.preventDefault();
         fetch('/users/login',{
             body: JSON.stringify({
-                credential: this.state.credential,
+                email: this.state.email,
                 password : this.state.password,
             }),
             headers:{
@@ -40,13 +43,16 @@ class LoginForm extends React.Component{
             method: 'POST',
 
         }).then(function(response) {
-            return response.json();
-        })
-            .then(function(myJson) {
-                console.log(myJson);
-            });
+            if (response.status === 200){
+                this.setState({redirect: true});
+            }
+        }.bind(this));
     }
     render() {
+
+        if(this.state.redirect){
+            return <Redirect to="/landing" />;
+        }
         return (
             <div className="h-100 mx-auto my-auto" style={bgImg}>
                 <div className="container h-100">
@@ -62,8 +68,8 @@ class LoginForm extends React.Component{
                                         <div className="form-group row">
                                             <label className="col-12">
                                                 email:
-                                                <input type="email" className="form-control form-control-lg" id="email" name="credential"
-                                                       value={this.state.credential}
+                                                <input type="email" className="form-control form-control-lg" id="email" name="email"
+                                                       value={this.state.email}
                                                        onChange={this.handleChange}/>
                                             </label>
                                         </div>

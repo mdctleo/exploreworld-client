@@ -14,9 +14,6 @@ class landing extends Component{
         this.state={
            fingerprint: props.fingerprint
         };
-
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     render(){
