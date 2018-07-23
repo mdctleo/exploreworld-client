@@ -20,7 +20,7 @@ class PageRouter extends Component{
     }
     render(){
         return(
-        <main className= "h-100">
+        <main>
             <Switch>
                 <Route exact path='/' render={(props) => <RegisterForm variablePasser={this.variablePasser}/>}/>
                 <Route path='/login' component={LoginForm}/>

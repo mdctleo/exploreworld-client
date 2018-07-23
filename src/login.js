@@ -4,6 +4,16 @@ import { Link } from 'react-router-dom'
 import Redirect from "react-router-dom/es/Redirect";
 import landing from "./landing";
 
+import {Card, CardActions, CardContent, CardHeader} from '@material-ui/core';
+import TextField from '@material-ui/core/TextField'
+import FormGroup from '@material-ui/core/FormGroup'
+import FormControl from '@material-ui/core/FormControl'
+import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+import Typography from "@material-ui/core/es/Typography/Typography";
+
+
+
 var bgImg= {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
@@ -54,48 +64,59 @@ class LoginForm extends React.Component{
             return <Redirect to="/landing" />;
         }
         return (
-            <div className="h-100 mx-auto my-auto" style={bgImg}>
-                <div className="container h-100">
-                    <div className="row h-100">
-                        <div className="col-12 col-md-6 mx-auto my-auto">
-                            <div className="card">
-                                <div className="card-body">
-                                    <form onSubmit={this.handleSubmit}>
-                                        <div className="form-group row">
-                                            <h1> Login </h1>
-                                        </div>
+                <Grid container spacing={8} justify="center">
+                    <Grid item xs={6}>
+                        <Card>
+                            <form onSubmit={this.handleSubmit}>
 
-                                        <div className="form-group row">
-                                            <label className="col-12">
-                                                email:
-                                                <input type="email" className="form-control form-control-lg" id="email" name="email"
-                                                       value={this.state.email}
-                                                       onChange={this.handleChange}/>
-                                            </label>
-                                        </div>
+                                <CardContent>
 
-                                        <div className="form-group row">
-                                            <label className="col-12">
-                                                password:
-                                                <input type="password" className="form-control form-control-lg" id="password"
-                                                       name="password"
-                                                       value={this.state.password}
-                                                       onChange={this.handleChange}/>
-                                            </label>
-                                        </div>
-                                        <input type="submit" className="btn btn-danger col-" value="login"/>
-                                        <Link to='/'>don't have an account? login</Link>
+                                    <Typography gutterBottom variant="headline" component="h2">
+                                        Login
+                                    </Typography>
 
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                    <FormGroup>
+                                        <FormControl>
+                                            <TextField
+                                                required
+                                                label='Email'
+                                                type="email"
+                                                margin="normal"
+                                                id="email" name="email"
+                                                value={this.state.email}
+                                                onChange={this.handleChange}
+                                            >
+
+                                            </TextField>
+                                        </FormControl>
+                                    </FormGroup>
+
+                                    <FormGroup>
+                                        <TextField
+                                            required
+                                            label='Password'
+                                            type="password"
+                                            margin="normal"
+                                            id="password" name="password"
+                                            value={this.state.password}
+                                            onChange={this.handleChange}
+                                        >
+                                        </TextField>
+                                    </FormGroup>
+
+                                </CardContent>
 
 
+                                <CardActions>
+                                    <Button type="submit">Login</Button>
+                                </CardActions>
 
+                            </form>
+
+
+                        </Card>
+                    </Grid>
+                </Grid>
 
         );
     }
