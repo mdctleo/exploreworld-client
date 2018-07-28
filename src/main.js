@@ -22,7 +22,7 @@ class PageRouter extends Component{
         return(
         <main>
             <Switch>
-                <Route exact path='/' render={(props) => <RegisterForm variablePasser={this.variablePasser}/>}/>
+                <Route exact path='/' component={RegisterForm}/>
                 <Route path='/login' component={LoginForm}/>
                 <Route path='/landing' component={Landing}/>
             </Switch>

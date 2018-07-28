@@ -72,7 +72,7 @@ class RegisterForm extends React.Component{
         return (
             <Grid container spacing={8} justify="center">
                 <Grid item xs={6}>
-                    <Card in={true}>
+                    <Card in="true">
                         <form onSubmit={this.handleSubmit}>
 
                         <CardContent>

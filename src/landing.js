@@ -42,6 +42,7 @@ class landing extends Component{
                 "Content-Type": "application/json",
             },
             method: 'GET',
+            credentials: "include"
 
         }).then(function(response) {
 

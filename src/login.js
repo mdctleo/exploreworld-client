@@ -3,6 +3,7 @@ import testBackground from './testBackground.jpg';
 import { Link } from 'react-router-dom'
 import Redirect from "react-router-dom/es/Redirect";
 import landing from "./landing";
+import CustomizedSnackbars from "./snackbar";
 
 import {Card, CardActions, CardContent, CardHeader} from '@material-ui/core';
 import TextField from '@material-ui/core/TextField'
@@ -27,11 +28,13 @@ class LoginForm extends React.Component{
         this.state={
             email: '',
             password: '',
-            redirect: false
+            redirect: false,
+            error: null
         };
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.clearError = this.clearError.bind(this);
     }
 
     handleChange(event){
@@ -56,16 +59,34 @@ class LoginForm extends React.Component{
             if (response.status === 200){
                 this.setState({redirect: true});
             }
+
+            return response.json();
+        }.bind(this)).then(function(myJson) {
+            console.log(myJson);
+            this.setState({error: myJson.payload});
         }.bind(this));
     }
+
+    clearError(){
+        this.setState({error: null});
+    }
+
     render() {
+
+        let errorSnackbar;
+
+        if(this.state.error){
+            errorSnackbar = <CustomizedSnackbars clearError={this.clearError} variant="error" message={this.state.error}/>
+        }
 
         if(this.state.redirect){
             return <Redirect to="/landing" />;
         }
+
         return (
-                <Grid container spacing={8} justify="center">
-                    <Grid item xs={6}>
+             <Grid container spacing={8} justify="center">
+                 {errorSnackbar}
+                 <Grid item xs={6}>
                         <Card>
                             <form onSubmit={this.handleSubmit}>
 
