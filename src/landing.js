@@ -49,7 +49,7 @@ class landing extends Component{
     }
 
     render(){
-        const image = require('../imgs/' + this.state.index % 10 + '.jpg');
+        const image = require('../imgs/' + (this.state.index % 10 + 1) + '.jpg');
 
         return(
             <div>
