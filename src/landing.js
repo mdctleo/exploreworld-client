@@ -1,20 +1,11 @@
 import React, { Component } from 'react';
-import testBackground from './testBackground.jpg';
 import './App.css';
 import PropTypes from 'prop-types';
-import GridList from '@material-ui/core/GridList'
 import Card from '@material-ui/core/Card'
 import CardMedia from '@material-ui/core/CardMedia'
 import { withStyles } from '@material-ui/core/styles';
-
-import GridListTile from '@material-ui/core/GridListTile'
-// import {styles as classes} from "@material-ui/core/es/CardMedia/CardMedia";
-
-var bgImg= {
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundImage: "url(" + testBackground + ")"
-};
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
 
 const styles = {
     card: {
@@ -30,10 +21,9 @@ class landing extends Component{
     constructor(props){
         super(props);
         this.state={
-           fingerprint: props.fingerprint
+            fingerprint: props.fingerprint,
+            index: 1
         };
-
-
     }
 
     componentDidMount() {
@@ -49,15 +39,38 @@ class landing extends Component{
         }.bind(this));
     }
 
+    handleClick(like) {
+        // TODO: Add user preferences for the current image to database here.
+
+        this.setState({
+            fingerprint: this.state.fingerprint,
+            index: this.state.index + 1
+        });
+    }
+
     render(){
+        const image = require('../imgs/' + this.state.index % 10 + '.jpg');
+
         return(
-
-            <Card className={this.props.classes.card}>
-                <CardMedia
-                    image="https://material-ui.com/static/images/grid-list/breakfast.jpg"
-                    className={this.props.classes.media}/>
-            </Card>
-
+            <div>
+                <Card className={this.props.classes.card}>
+                    <CardMedia
+                        image={image}
+                        className={this.props.classes.media}/>
+                </Card>
+                <Grid container justify="center" spacing={16}>
+                    <Grid key="like" item>
+                        <Button variant="contained" className="like-button" color="primary" onClick={() => this.handleClick(true)}>
+                            Yay
+                        </Button>
+                    </Grid>
+                    <Grid key="dislike" item>
+                        <Button variant="contained" className="dislike-button" color="primary" onClick={() => this.handleClick(false)}>
+                            Nay
+                        </Button>
+                    </Grid>
+                </Grid>
+            </div>
         );
     }
 }
