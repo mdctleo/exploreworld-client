@@ -17,6 +17,7 @@
 .env.production.local
 **/.idea/workspace.xml
 **/.idea/tasks.xml
+**/.idea/usage.statics.xml
 .DS_Store
 
 npm-debug.log*
