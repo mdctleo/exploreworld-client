@@ -22,7 +22,9 @@ class landing extends Component{
         super(props);
         this.state={
             fingerprint: props.fingerprint,
-            index: 1
+            index: 0,
+            pictures: null,
+            loading: true
         };
     }
 
@@ -36,20 +38,40 @@ class landing extends Component{
 
         }).then(function(response) {
 
+            return response.json();
+
+        }).then(function(myJson){
+
+            if(myJson.error === null){
+                this.setState({pictures: myJson.payload});
+                console.log(this.state.pictures);
+            }else{
+                //TODO: deploy snackbar
+            }
+
+            this.setState({loading: false});
         }.bind(this));
     }
 
     handleClick(like) {
         // TODO: Add user preferences for the current image to database here.
+        console.log(this.state.index, this.state.pictures[this.state.index]);
 
-        this.setState({
-            fingerprint: this.state.fingerprint,
-            index: this.state.index + 1
-        });
+        if(this.state.index < this.state.pictures.length - 1) {
+
+            this.setState({
+                index: this.state.index + 1
+            });
+        }
     }
 
     render(){
-        const image = require('../imgs/' + (this.state.index % 10 + 1) + '.jpg');
+        let pictures = this.state.pictures;
+        let image;
+
+        if(!this.state.loading) {
+            image = require('../imgs/' + pictures[(this.state.index)] + '.jpg');
+        }
 
         return(
             <div>

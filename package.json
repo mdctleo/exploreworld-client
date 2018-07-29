@@ -25,5 +25,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://1149f8c5.ngrok.io"
+  "proxy": "https://39e1be01.ngrok.io"
 }
