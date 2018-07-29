@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a53025a8-a391-4fdc-b3d1-2240d242eae2" name="Default" comment="Implemented cycle through images and current image index.">
-      <change beforePath="$PROJECT_DIR$/imgs/0.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/0.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/1.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/1.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/2.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/3.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/3.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/4.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/5.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/6.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/6.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/7.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/7.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/8.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/8.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/9.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imgs/9.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/imgs/10.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/landing.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/landing.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -58,8 +47,8 @@
       <file leaf-file-name="landing.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/landing.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="51" column="81" lean-forward="true" selection-start-line="51" selection-start-column="81" selection-end-line="51" selection-end-column="81" />
+            <state relative-caret-position="105">
+              <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -346,7 +335,7 @@
       <workItem from="1532284696266" duration="1017000" />
       <workItem from="1532306707207" duration="382000" />
       <workItem from="1532307176525" duration="572000" />
-      <workItem from="1532818851301" duration="9030000" />
+      <workItem from="1532818851301" duration="11862000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented cycle through images and current image index.">
       <created>1532828612210</created>
@@ -359,7 +348,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67030000" />
+    <option name="totallyTimeSpent" value="69862000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="22" width="1439" height="878" extended-state="6" />
@@ -378,15 +367,15 @@
       <window_info id="UI Designer" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39925373" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" visible="true" weight="0.329602" />
+      <window_info anchor="bottom" id="Messages" weight="0.329602" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49965253" weight="0.329602" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989576" weight="0.19029851" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4989576" visible="true" weight="0.19029851" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20639333" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20639333" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -696,8 +685,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/landing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="51" column="81" lean-forward="true" selection-start-line="51" selection-start-column="81" selection-end-line="51" selection-end-column="81" />
+        <state relative-caret-position="105">
+          <caret line="7" column="42" selection-start-line="7" selection-start-column="42" selection-end-line="7" selection-end-column="42" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
