@@ -8,12 +8,15 @@ import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 
 const styles = {
+    root: {
+        flexGrow: 1,
+    },
     card: {
-        width: 512
+        width: 512,
     },
     media: {
         width: 512,
-        height: 288
+        height: 288,
     },
 };
 
@@ -74,19 +77,29 @@ class landing extends Component{
         }
 
         return(
-            <div>
-                <Card className={this.props.classes.card}>
-                    <CardMedia
-                        image={image}
-                        className={this.props.classes.media}/>
-                </Card>
-                <Grid container justify="center" spacing={16}>
-                    <Grid key="like" item>
+            <div className={this.props.classes.root}>
+                <Grid container
+                      spacing={24}
+                      justify={"center"}>
+                    <Grid container
+                          justify={"center"}>
+                        <Grid item
+                              key="image">
+                            <Card className={this.props.classes.card}>
+                                <CardMedia
+                                    image={image}
+                                    className={this.props.classes.media}/>
+                            </Card>
+                        </Grid>
+                    </Grid>
+                    <Grid item
+                          key="like">
                         <Button variant="contained" className="like-button" color="primary" onClick={() => this.handleClick(true)}>
                             Yay
                         </Button>
                     </Grid>
-                    <Grid key="dislike" item>
+                    <Grid item
+                          key="dislike">
                         <Button variant="contained" className="dislike-button" color="primary" onClick={() => this.handleClick(false)}>
                             Nay
                         </Button>
