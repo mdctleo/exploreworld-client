@@ -6,18 +6,21 @@ import CardMedia from '@material-ui/core/CardMedia'
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
+import CustomizedSnackbars from "./snackbar";
+import CircularProgress from '@material-ui/core/CircularProgress';
+import {Redirect} from "react-router-dom";
 
 const styles = {
     root: {
         flexGrow: 1,
     },
-    card: {
-        width: 512,
-    },
-    media: {
-        width: 512,
-        height: 288,
-    },
+    // card: {
+    //     width: '512px',
+    // },
+    // media: {
+    //     width: '512px',
+    //     height: '288px',
+    // },
 };
 
 class landing extends Component{
@@ -27,8 +30,12 @@ class landing extends Component{
             fingerprint: props.fingerprint,
             index: 0,
             pictures: null,
-            loading: true
+            loading: true,
+            error: null,
+            redirect: false
         };
+
+        this.clearError = this.clearError.bind(this);
     }
 
     componentDidMount() {
@@ -49,11 +56,22 @@ class landing extends Component{
                 this.setState({pictures: myJson.payload});
                 console.log(this.state.pictures);
             }else{
-                //TODO: deploy snackbar
+                this.setState({error: myJson.payload});
+
+
+                //TODO: Should have some sort of error enum class like backend
+                if(myJson.error === "InvalidAuthorization"){
+                    this.setState({redirect: true});
+                }
+
             }
 
             this.setState({loading: false});
         }.bind(this));
+    }
+
+    clearError(){
+        this.setState({error: null});
     }
 
     handleClick(like) {
@@ -71,8 +89,35 @@ class landing extends Component{
     render(){
         let pictures = this.state.pictures;
         let image;
+        let errorSnackbar;
+        let progressDisc;
 
-        if(!this.state.loading) {
+        //TODO: FIGURE OUT HOW TO DYNAMICALLY SIZE CARD ACCORDING TO PICTURE SIZE
+        var testStyles = {card: {
+            width: 512,
+        }};
+        var testStyles1 = {
+            media: {
+                width: 512,
+                height: 288,
+            }
+
+        };
+
+        if(this.state.error){
+            errorSnackbar = <CustomizedSnackbars clearError={this.clearError} variant="error" message={this.state.error}/>
+        }
+
+        if(this.state.redirect){
+            return <Redirect to="/landing" />;
+        }
+
+        if(this.state.loading){
+            progressDisc =  <CircularProgress size={50} />
+        }
+
+
+        if(!this.state.loading && this.state.error == null) {
             image = require('../imgs/' + pictures[(this.state.index)] + '.jpg');
         }
 
@@ -83,12 +128,14 @@ class landing extends Component{
                       justify={"center"}>
                     <Grid container
                           justify={"center"}>
+                        {errorSnackbar}
+                        {progressDisc}
                         <Grid item
                               key="image">
-                            <Card className={this.props.classes.card}>
+                            <Card style={testStyles.card}>
                                 <CardMedia
                                     image={image}
-                                    className={this.props.classes.media}/>
+                                    style={testStyles1.media}/>
                             </Card>
                         </Grid>
                     </Grid>
